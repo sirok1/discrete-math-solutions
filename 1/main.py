@@ -115,7 +115,6 @@ def find_code_length(one_letter_occurrence: defaultdict):
         total_codes_amount += 1
     return math.ceil(math.log2(total_codes_amount))
 
-
 def find_information_redundancy(code_len, entropy_one_letter):
     return round(1 - (entropy_one_letter / code_len), 3)
 
