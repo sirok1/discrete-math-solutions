@@ -37,25 +37,25 @@ def shannon_fano_coding(freqs):
 
 text = "ABRACADABRA"
 
-# Single Letter Shannon-Fano Coding
+
 single_freqs = Counter(text)
 single_codes = shannon_fano_coding(single_freqs)
 
 encoded_single = ''.join([single_codes[char] for char in text])
 
-# Two Letter Shannon-Fano Coding
+
 two_letter_freqs = Counter([text[i:i + 2] for i in range(0, len(text) - 1, 2)])
 two_letter_codes = shannon_fano_coding(two_letter_freqs)
 
 encoded_two_letter = ''.join([two_letter_codes[text[i:i + 2]] for i in range(0, len(text) - 1, 2)])
 
-# Calculate Entropy
+
 entropy = -sum([(freq / len(text)) * math.log2(freq / len(text)) for freq in single_freqs.values()])
 
-# Uniform Code Length
+
 uniform_length = math.ceil(math.log2(len(single_freqs)))
 
-# Redundancy
+
 redundancy = uniform_length - entropy
 
 print("Single Letter Shannon-Fano Encoding:", encoded_single)
@@ -65,7 +65,7 @@ print("Uniform Code Length:", uniform_length)
 print("Redundancy:", redundancy)
 
 
-# Decoding is done by reversing the dictionary and matching longest prefix
+
 def decode(encoded, codes):
     reverse_codes = {v: k for k, v in codes.items()}
     decoded = ""
