@@ -1,4 +1,5 @@
 import heapq
+import re
 from collections import Counter
 import math
 
@@ -15,7 +16,7 @@ def huffman_coding(frequencies):
     heapq.heapify(heap)  
     while len(heap) > 1:
         lo = heapq.heappop(heap)  
-        hi = heapq.heappop(heap)  
+        hi = heapq.heappop(heap)
         for pair in lo[1:]:
             pair[1] = '0' + pair[1]  
         for pair in hi[1:]:
@@ -52,7 +53,8 @@ def decode_text(encoded_text, decoding_dict):
 
 text = "Русский язык является одним из наиболее сложных в современном мире, но он не так распространен как многие другие. Особенностью русского языка является невероятная выразительность и возможность составлять слова, меняя склонения и падежи. Такой вариабельности не существует во многих других языках. На протяжении довольно длительного периода русский язык впитывал в себя огромное количество других языков. Собственно такой процесс является вполне нормальным, но русский язык в современном мире явно отличается от такого языка, на котором говорили наши далекие предки."
 
-processed_text = text.lower()  
+processed_text = text.lower()
+processed_text = re.sub(r"[ \s\d]|[^\w\s]", "", processed_text)
 print("Обработанный текст:", processed_text)
 
 

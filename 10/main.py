@@ -18,8 +18,8 @@ def random_prime_number(minimum, maximum):
     return num
 
 
-prime_number1 = random_prime_number(10000, 200000)
-prime_number2 = random_prime_number(10000, 200000)
+prime_number1 = random_prime_number(10000, 2000000000000000)
+prime_number2 = random_prime_number(10000, 2000000000000000)
 
 print('Первое простое число:', prime_number1)
 print('Второе простое число:', prime_number2)
